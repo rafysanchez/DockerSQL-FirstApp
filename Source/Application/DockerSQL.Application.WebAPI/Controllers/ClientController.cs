@@ -99,7 +99,7 @@ namespace DockerSQL.Application.WebAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult retornavalor([FromRoute]int clientId)
+        public IActionResult retornavalor(int clientId = 0)
         {
             string jsonData = @"{  
                                 'FirstName':'Jignesh',  
