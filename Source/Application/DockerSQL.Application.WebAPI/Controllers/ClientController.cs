@@ -1,6 +1,7 @@
 ﻿using DockerSQL.Application.Abstractions;
 using DockerSQL.Application.InOut.Clients;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Threading.Tasks;
 
@@ -95,6 +96,17 @@ namespace DockerSQL.Application.WebAPI.Controllers
         {
             var clientResponse = await _clientApplicationService.GetByIdAsync(clientId);
             return clientResponse != null;
+        }
+
+        [HttpGet]
+        public IActionResult retornavalor([FromRoute]int clientId)
+        {
+            string jsonData = @"{  
+                                'FirstName':'Jignesh',  
+                                'LastName':'Trivedi'  
+                                }";
+            dynamic data = JObject.Parse(jsonData);
+            return data;
         }
     }
 }
